@@ -3,12 +3,19 @@
 
 .sidebar {
   background: map-get($colors, light-grey);
-  display: none;
+  display: block;
   font-size: 13px;
   font-weight: normal;
   min-height: 100vh;
   padding: 30px;
   width: 120px;
+}
+
+.sidebar--closed{
+  left: -180px;
+}
+.sidebar--opened{
+  left: 0;
 }
 
 .sidebarNav {
@@ -53,8 +60,10 @@
   font-weight: map-get($font-weights, semi-bold);
 }
 
-@media screen and (min-width: 1026px) {
-  .sidebar {
-    display: block;
+@media screen and (max-width: 1026px) {
+  .sidebar{
+    position: absolute;
+    z-index: 100;
+    transition: left 300ms ease-out;
   }
 }

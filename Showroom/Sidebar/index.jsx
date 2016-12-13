@@ -1,12 +1,22 @@
 import React from 'react'
 import Link from '../../Link'
+import classNamesBind from 'classnames/bind'
 import * as Paragraph from '../../Paragraph'
 import * as Chevron from '../../icons/Chevron'
 import styles from './styles.scss'
 
-export default function Sidebar ({examples, selected}) {
+const baseClass = 'sidebar'
+
+const classes = {
+  opened: `${baseClass}--opened`,
+  closed: `${baseClass}--closed`
+}
+
+export default function Sidebar ({examples, selected, closed}) {
+  const classNames = classNamesBind.bind(styles)
+
   return (
-    <aside className={styles.sidebar}>
+    <aside className={classNames(styles.sidebar, closed ? classes.closed : classes.opened)}>
       <nav className={styles.sidebarNav}>
         <a href='#'>
           <svg

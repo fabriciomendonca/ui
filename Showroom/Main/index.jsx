@@ -7,6 +7,8 @@ import Menu from '../Menu'
 import Page from '../Page'
 import Sidebar from '../Sidebar'
 import K from '../K'
+import Close from '../../icons/Close'
+import Items from '../../icons/Items'
 import { has } from 'ramda'
 
 import 'normalize.css'
@@ -29,16 +31,19 @@ const getCurrentPage = ([anchor], examples) =>
     )
     : <GettingStarted />
 
-export default function Showroom ({route, grid, examples}) {
+export default function Showroom ({route, grid, examples, sidebar}) {
+  sidebar.event.initEvent('sidebar', true, true)
+
   return <main>
     {grid.display && <Grid
       offsets={grid.offsets}
       halfLine={5} height={grid.height}
       line={10} width={grid.width}
     />}
-
-    <Sidebar examples={examples} selected={route[0]} />
-
+    <Sidebar examples={examples} selected={route[0]} closed={sidebar.closed} />
+    <Link className={styles.menu__button} onClick={() => window.dispatchEvent(sidebar.event)}>
+      {sidebar.closed ? <Items /> : <Close />}
+    </Link>
     <Link className={styles['page__narrow--anchor']}>
       <K hoverable />
     </Link>
