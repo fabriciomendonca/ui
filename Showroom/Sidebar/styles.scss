@@ -60,7 +60,7 @@
   font-weight: map-get($font-weights, semi-bold);
 }
 
-@media screen and (max-width: 1026px) {
+@media screen and (max-width: 1024px) {
   .sidebar{
     position: absolute;
     z-index: 100;

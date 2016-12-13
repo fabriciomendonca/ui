@@ -6,17 +6,16 @@ import * as Chevron from '../../icons/Chevron'
 import styles from './styles.scss'
 
 const baseClass = 'sidebar'
-
 const classes = {
   opened: `${baseClass}--opened`,
   closed: `${baseClass}--closed`
 }
 
-export default function Sidebar ({examples, selected, closed}) {
+export default function Sidebar ({examples, selected, closedSm}) {
   const classNames = classNamesBind.bind(styles)
 
   return (
-    <aside className={classNames(styles.sidebar, closed ? classes.closed : classes.opened)}>
+    <aside className={classNames(styles.sidebar, closedSm ? classes.closed : classes.opened)}>
       <nav className={styles.sidebarNav}>
         <a href='#'>
           <svg

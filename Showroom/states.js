@@ -27,7 +27,7 @@ const initialState = {
     width: window.innerWidth
   },
   sidebar: {
-    closed: true,
+    closedSm: true,
     event: window.document.createEvent('Event')
   }
 }

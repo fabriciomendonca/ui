@@ -11,6 +11,6 @@ export const reducer = (state) => ({
   ...state,
   sidebar: {
     ...state.sidebar,
-    closed: !state.sidebar.closed
+    closedSm: !state.sidebar.closedSm
   }
 })

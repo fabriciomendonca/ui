@@ -40,9 +40,9 @@ export default function Showroom ({route, grid, examples, sidebar}) {
       halfLine={5} height={grid.height}
       line={10} width={grid.width}
     />}
-    <Sidebar examples={examples} selected={route[0]} closed={sidebar.closed} />
+    <Sidebar examples={examples} selected={route[0]} closedSm={sidebar.closedSm} />
     <Link className={styles.menu__button} onClick={() => window.dispatchEvent(sidebar.event)}>
-      {sidebar.closed ? <Items /> : <Close />}
+      {sidebar.closedSm ? <Items /> : <Close />}
     </Link>
     <Link className={styles['page__narrow--anchor']}>
       <K hoverable />
